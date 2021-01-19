@@ -4,6 +4,7 @@ module.exports = {
   get(_, res) {
     res.send('user get acessado');
   },
+
   async create(request, response) {
     const {
       nome,
@@ -19,7 +20,7 @@ module.exports = {
       uf,
     } = request.body;
     try {
-      await api('users').insert({
+      const user_id = await api('users').insert({
         nome,
         apelido,
         nascimento,
@@ -32,7 +33,7 @@ module.exports = {
         cidade,
         uf,
       });
-      return response.status(201).json({ nome });
+      return response.status(201).json({ user_id });
     } catch (error) {
       console.info('#Erro inserir user' + error);
     }
