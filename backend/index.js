@@ -1,9 +1,9 @@
 const express = require('express');
+const routes = require('./src/routes');
 
 const app = express();
-app.get('/', (req, resp) => {
-  resp.send('primeira rota acessada!');
-});
+
+app.use(routes);
 
 app.listen(3333, () => {
   console.log('Servidor iniciado na porta: 3333');
