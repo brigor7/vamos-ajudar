@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('./controller/userController');
 const sessionController = require('./controller/sessionController');
+const adminController = require('./controller/adminController');
 
 const routes = express.Router();
 routes.use(express.json());
@@ -16,5 +17,8 @@ routes.delete('/user', userController.remove);
 
 /**Session */
 routes.post('/session', sessionController.session);
+
+/**Admin */
+routes.post('/user/add', adminController.add);
 
 module.exports = routes;
