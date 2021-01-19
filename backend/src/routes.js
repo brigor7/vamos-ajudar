@@ -9,6 +9,7 @@ routes.get('/', (req, res) => {
 });
 
 /**Users*/
-routes.get('/user', userController.get);
+routes.get('/user', userController.list);
 routes.post('/user', userController.create);
+routes.delete('/user', userController.remove);
 module.exports = routes;
