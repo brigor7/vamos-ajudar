@@ -1,0 +1,11 @@
+{
+  "name": "vamos-ajudar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brigor7/vamos-ajudar.git",
+  "author": "=Bruno Igor <=brigor7@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react-icons": "^4.1.0"
+  }
+}

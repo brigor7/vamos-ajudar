@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap');
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  background: #120b05;
+  background-image: url('./assets/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: 'Goldman', cursive;
+  color: #07b9c3;
+  font-size: 64px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #120bbb;
+  text-align: center;
+}
+
+img {
+  display: flex;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .content form input {
+  font-size: 18px;
+  border: 2px solid #f2884b;
+  border-radius: 5px;
+  padding: 10px 5px;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+.container .content form button {
+  font-size: 24px;
+  color: #2f38f5;
+  padding: 5px 0;
+  border: none;
+  border-radius: 5px;
+  background: #f2884b;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.container .content form button:hover {
+  background: #f2994a;
+}
+
+.container .content .form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .content .form-footer a {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.container .content .form-footer a svg {
+  margin-right: 2px;
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    background-image: url('./assets/backgroundMobile.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
