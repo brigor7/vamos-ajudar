@@ -16,6 +16,7 @@ export default function NewUser() {
   const [thumbnail, setThumbnail] = useState('');
   const [cidade, setCidade] = useState('');
   const [uf, setUF] = useState('');
+  const data = new FormData();
 
   const preview = useMemo(() => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -24,18 +25,18 @@ export default function NewUser() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const user = await api.post('user', {
-        nome,
-        apelido,
-        nascimento,
-        sexo,
-        email,
-        whatsapp,
-        password,
-        thumbnail,
-        cidade,
-        uf,
-      });
+      data.append('nome', nome);
+      data.append('apelido', apelido);
+      data.append('nascimento', nascimento);
+      data.append('sexo', sexo);
+      data.append('email', email);
+      data.append('whatsapp', whatsapp);
+      data.append('password', password);
+      data.append('thumbnail', thumbnail);
+      data.append('cidade', cidade);
+      data.append('uf', uf);
+
+      const user = await api.post('user', data);
       console.log('usuario inserido: ' + user);
     } catch (error) {
       console.log('### Erro ao inserir usuario' + error);
