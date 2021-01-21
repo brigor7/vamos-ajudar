@@ -2,6 +2,7 @@ form .formContainer {
   display: flex;
   max-width: 840px;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 form .formContainer div {
@@ -14,9 +15,16 @@ form .formContainer div input {
   width: 90%;
 }
 
+form .formContainer .personal-content {
+  flex: 1;
+}
+form .formContainer .contacts-content {
+  flex: 1;
+}
+
 #nascimento {
   margin-right: 20px;
-  width: 120px;
+  width: 100px;
 }
 
 .button {

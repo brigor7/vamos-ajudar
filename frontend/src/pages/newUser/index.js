@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiArrowLeft, FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import api from '../../connection';
 import './style.css';
 
 export default function NewUser() {
@@ -16,8 +17,25 @@ export default function NewUser() {
   const [cidade, setCidade] = useState('');
   const [uf, setUF] = useState('');
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      const user = await api.post('user', {
+        nome,
+        apelido,
+        nascimento,
+        sexo,
+        email,
+        whatsapp,
+        password,
+        thumbnail,
+        cidade,
+        uf,
+      });
+      console.log('usuario inserido: ' + user);
+    } catch (error) {
+      console.log('### Erro ao inserir usuario' + error);
+    }
   }
 
   return (
@@ -54,7 +72,8 @@ export default function NewUser() {
               onChange={(e) => {
                 setNascimento(e.target.value);
               }}
-              placeholder="Data de nascimento com dd/mm/aaaa"
+              placeholder="Nascimento"
+              alt="Data de nascimento com dd/mm/aaaa"
             />
 
             <span class="genero">
