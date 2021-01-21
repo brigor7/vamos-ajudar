@@ -32,6 +32,7 @@ module.exports = {
   },
 
   async create(request, response) {
+    const { filename } = request.file;
     const {
       nome,
       apelido,
@@ -40,7 +41,6 @@ module.exports = {
       email,
       whatsapp,
       password,
-      thumbnail,
       isAdmin,
       cidade,
       uf,
@@ -54,7 +54,7 @@ module.exports = {
         email,
         whatsapp,
         password,
-        thumbnail,
+        thumbnail: filename,
         isAdmin,
         cidade,
         uf,
