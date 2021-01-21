@@ -7,12 +7,14 @@ body {
   background-image: url('./assets/background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin: 0;
 }
 
 h1 {
   font-family: 'Goldman', cursive;
   color: #07b9c3;
   font-size: 64px;
+  margin: 10px 0;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #120bbb;
   text-align: center;
@@ -27,6 +29,7 @@ img {
   height: 100vh;
   margin: auto;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: center;
