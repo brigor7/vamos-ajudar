@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { FiArrowLeft, FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import api from '../../connection';
@@ -16,6 +16,10 @@ export default function NewUser() {
   const [thumbnail, setThumbnail] = useState('');
   const [cidade, setCidade] = useState('');
   const [uf, setUF] = useState('');
+
+  const preview = useMemo(() => {
+    return thumbnail ? URL.createObjectURL(thumbnail) : null;
+  }, [thumbnail]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -45,8 +49,17 @@ export default function NewUser() {
         <div className="formContainer">
           <div className="personal-content">
             <span className="thumb-container">
-              <label id="thumbnail">
-                <input type="file" />
+              <label
+                id="thumbnail"
+                style={{ backgroundImage: `url(${preview})` }}
+                className={thumbnail ? 'has-thumbnail' : ''}
+              >
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    setThumbnail(e.target.files[0]);
+                  }}
+                />
                 <span className="svg">
                   <FiCamera size={24} color="#252525" />
                 </span>
