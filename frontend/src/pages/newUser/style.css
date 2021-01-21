@@ -1,8 +1,7 @@
 form .formContainer {
   display: flex;
-  max-width: 840px;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  max-width: 940px;
+  flex-direction: row;
 }
 
 form .formContainer div {
@@ -106,3 +105,13 @@ label#thumbnail.has-thumbnail svg {
 .genero input[type='radio']:checked + label {
   background-position: 0 -30px;
 }
+
+@media (max-width: 768px) {
+  form .formContainer {
+    flex-direction: column;
+  }
+
+  #nascimento {
+    margin-right: 2px;
+  }
+} ;
