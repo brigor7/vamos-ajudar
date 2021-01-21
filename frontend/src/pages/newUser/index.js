@@ -11,6 +11,7 @@ export default function NewUser() {
   const [email, setEmail] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordRetyped, setPasswordRetyped] = useState('');
   const [thumbnail, setThumbnail] = useState('');
   const [cidade, setCidade] = useState('');
   const [uf, setUF] = useState('');
@@ -33,12 +34,29 @@ export default function NewUser() {
                 </span>
               </label>
             </span>
-            <input placeholder="Seu nome Completo" />
-            <input placeholder="Como quer ser chamado?" />
+            <input
+              placeholder="Seu nome Completo"
+              value={nome}
+              onChange={(e) => {
+                setNome(e.target.value);
+              }}
+            />
+            <input
+              placeholder="Como quer ser chamado?"
+              value={apelido}
+              onChange={(e) => {
+                setApelido(e.target.value);
+              }}
+            />
             <input
               id="nascimento"
+              value={nascimento}
+              onChange={(e) => {
+                setNascimento(e.target.value);
+              }}
               placeholder="Data de nascimento com dd/mm/aaaa"
             />
+
             <span class="genero">
               <input
                 type="radio"
@@ -57,14 +75,55 @@ export default function NewUser() {
             </span>
           </div>
           <div className="contacts-content">
-            <input type="email" placeholder="Seu melhor email" />
-            <input placeholder="Seu whatsapp" />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="Seu melhor email"
+            />
+            <input
+              value={whatsapp}
+              onChange={(e) => {
+                setWhatsapp(e.target.value);
+              }}
+              placeholder="Seu whatsapp"
+            />
             <span className="residence-content">
-              <input id="cidade" placeholder="Cidade onde mora" />
-              <input id="uf" placeholder="UF" />
+              <input
+                id="cidade"
+                value={cidade}
+                onChange={(e) => {
+                  setCidade(e.target.value);
+                }}
+                placeholder="Cidade onde mora"
+              />
+              <input
+                value={uf}
+                onChange={(e) => {
+                  setUF(e.target.value);
+                }}
+                id="uf"
+                placeholder="UF"
+              />
             </span>
-            <input type="password" placeholder="Senha" />
-            <input type="password" placeholder="Repita sua senha" />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              placeholder="Senha"
+            />
+            <input
+              type="password"
+              value={passwordRetyped}
+              onChange={(e) => {
+                setPasswordRetyped(e.target.value);
+              }}
+              placeholder="Repita sua senha"
+            />
           </div>
         </div>
         <span className="button" type="submit">
