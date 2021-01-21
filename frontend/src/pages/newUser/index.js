@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiArrowLeft, FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function NewUser() {
+  const [nome, setNome] = useState('');
+  const [apelido, setApelido] = useState('');
+  const [nascimento, setNascimento] = useState('');
+  const [sexo, setSexo] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [password, setPassword] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [uf, setUF] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <div>
       <h1>Novo cadastro</h1>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="formContainer">
           <div className="personal-content">
             <span className="thumb-container">
@@ -52,7 +67,7 @@ export default function NewUser() {
             <input type="password" placeholder="Repita sua senha" />
           </div>
         </div>
-        <span className="button">
+        <span className="button" type="submit">
           <button id="cadastrar">Cadastrar</button>
         </span>
       </form>
