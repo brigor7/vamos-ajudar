@@ -1,0 +1,90 @@
+form .formContainer {
+  display: flex;
+  max-width: 840px;
+  justify-content: space-between;
+}
+
+form .formContainer div {
+  max-width: 380px;
+  margin: 0 30px;
+  flex-direction: column;
+}
+
+form .formContainer div input {
+  width: 90%;
+}
+
+#nascimento {
+  margin-right: 20px;
+  width: 120px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.button button {
+  width: 30%;
+}
+
+.thumb-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#thumbnail {
+  margin-bottom: 20px;
+  border: 1px dashed #252525;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+#thumbnail input {
+  display: none;
+}
+
+label#thumbnail.has-thumbnail {
+  border: 0;
+}
+
+label#thumbnail.has-thumbnail img {
+  display: none;
+}
+
+.residence-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin: 0 10px;
+}
+
+.residence-content #cidade {
+  width: 230px;
+}
+
+.residence-content #uf {
+  margin-left: 10px;
+  width: 40px;
+}
+
+.genero input[type='radio'] {
+  display: none; /* Esconde os inputs */
+}
+
+.genero input[type='radio'] + label {
+  display: inline-flex;
+  height: 20px;
+  padding: 0 0 0 25px;
+  margin: 0 10px 0 0;
+  background-image: url(http://www.webcis.com.br/images/imagens-noticias/checkbox/ico-master.webp);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.genero input[type='radio']:checked + label {
+  background-position: 0 -30px;
+}
