@@ -13,6 +13,9 @@ export default function NewUser() {
             <span className="thumb-container">
               <label id="thumbnail">
                 <input type="file" />
+                <span className="svg">
+                  <FiCamera size={24} color="#252525" />
+                </span>
               </label>
             </span>
             <input placeholder="Seu nome Completo" />
