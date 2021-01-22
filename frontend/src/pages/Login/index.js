@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { FiUserX, FiUserPlus } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import api from '../../connection';
 
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -13,11 +15,10 @@ function App() {
     try {
       const user_id = await api.post('/session', { email, password });
       console.log(user_id.data);
-      if (!user_id) {
-        console.log('Usuário ou senha inválidos!');
-      }
       localStorage.setItem('user_id', JSON.stringify(user_id.data));
+      history.push('/main');
     } catch (error) {
+      setMensagemErro('Usuário ou senha inválidos!');
       console.log('Ocorreu um erro ao realizar o login ' + email);
     }
   }
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <h1>Login</h1>
+      <div class="alerta error">{mensagemErro}</div>
       <form onSubmit={handleSubmit}>
         <input
           type="Email"
