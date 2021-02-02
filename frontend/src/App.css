@@ -34,10 +34,6 @@ img {
   align-items: center;
 }
 
-.container img {
-  margin-top: 40px;
-}
-
 .container .content form {
   display: flex;
   flex-direction: column;

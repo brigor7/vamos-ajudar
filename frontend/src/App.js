@@ -6,7 +6,6 @@ import Routes from './routes';
 function App() {
   return (
     <div className="container">
-      <img src={logo} alt="logo vem ajudar!" />
       <div className="content">
         <Routes />
       </div>
