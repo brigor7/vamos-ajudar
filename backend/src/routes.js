@@ -2,6 +2,7 @@ const express = require('express');
 const userController = require('./controller/userController');
 const sessionController = require('./controller/sessionController');
 const adminController = require('./controller/adminController');
+const familyController = require('./controller/familyController');
 const multer = require('multer');
 const uploadConfig = require('./config/upload');
 
@@ -23,5 +24,11 @@ routes.post('/session', sessionController.session);
 
 /**Admin */
 routes.post('/user/add', adminController.add);
+
+/**Family */
+routes.get('/family', familyController.list);
+routes.get('/family/:id', familyController.get);
+routes.post('/family', familyController.create);
+routes.delete('/family', familyController.delete);
 
 module.exports = routes;
