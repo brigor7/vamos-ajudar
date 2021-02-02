@@ -1,0 +1,23 @@
+.content {
+  width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content img {
+  padding: 15px;
+  width: 100px;
+}
+
+.content ul {
+  display: flex;
+}
+
+.content ul li {
+  margin-left: 15px;
+  list-style: none;
+}
+.content ul li a {
+  text-decoration: none;
+}
