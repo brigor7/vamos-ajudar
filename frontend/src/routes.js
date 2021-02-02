@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import NewUser from './pages/NewUser';
 import Main from './pages/Main';
-import Menu from './pages/Menu';
+import Menu from './components/Menu';
+import Footer from './components/Footer';
 
 export default function Routes() {
   return (
@@ -13,6 +14,7 @@ export default function Routes() {
         <Route path="/newUser" component={NewUser} />
         <Route path="/main" component={Main} />
         <Route path="/menu" component={Menu} />
+        <Route path="/footer" component={Footer} />
       </Switch>
     </BrowserRouter>
   );
