@@ -90,7 +90,7 @@ export default function NewUser() {
               alt="Data de nascimento com dd/mm/aaaa"
             />
 
-            <span class="genero">
+            <span className="genero">
               <input
                 type="radio"
                 value="0"

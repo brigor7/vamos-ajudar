@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { FiUserX, FiUserPlus } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../connection';
-import logo from '../../assets/logo.png';
 
-function App() {
+function ForgetPassword() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [emailRedigitado, setEmailRedigitado] = useState('');
   const [mensagemErro, setMensagemErro] = useState('');
   const history = useHistory();
 
@@ -27,9 +26,8 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <img className="img-logo" src={logo} alt="Logo vamos ajudar" />
-      <h1>Login</h1>
+    <>
+      <h1>Esqueci a senha</h1>
       <div className="alerta error">{mensagemErro}</div>
       <form onSubmit={handleSubmit}>
         <input
@@ -38,29 +36,21 @@ function App() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          placeholder="Email"
+          placeholder="Digite o Email"
         />
         <input
-          type="password"
-          value={password}
+          type="Email"
+          value={emailRedigitado}
           onChange={(e) => {
-            setPassword(e.target.value);
+            setEmail(e.target.value);
           }}
-          placeholder="Senha"
+          placeholder="Redigite o email"
         />
-        <button type="submit">Entrar</button>
+
+        <button type="submit">Mudar senha</button>
       </form>
-      <div className="form-footer">
-        <Link to="/newUser">
-          <FiUserPlus size={12} color="#fff" />
-          Novo usuário
-        </Link>
-        <Link to="/forgetPassword">
-          <FiUserX size={12} color="#fff" /> Esqueci a senha
-        </Link>
-      </div>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default ForgetPassword;
