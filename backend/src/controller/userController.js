@@ -1,4 +1,5 @@
 const api = require('../database/connection');
+const encrypt = require('../helper/encrypt');
 
 module.exports = {
   async list(request, response) {
@@ -46,6 +47,7 @@ module.exports = {
       uf,
     } = request.body;
     try {
+      const hashPassword = await encrypt.hash(password);
       const user_id = await api('users').insert({
         nome,
         apelido,
@@ -53,7 +55,7 @@ module.exports = {
         sexo,
         email,
         whatsapp,
-        password,
+        password: hashPassword,
         thumbnail: filename,
         isAdmin,
         cidade,

@@ -1,14 +1,16 @@
 const api = require('../database/connection');
 const authToken = require('../helper/authenticateToken');
+const encrypt = require('../helper/encrypt');
 
 module.exports = {
   async session(request, response) {
     const { email, password } = request.body;
+    const hashPassword = await encrypt.hash(password);
     try {
       const user_id = await api
         .select('user_id', 'nome', 'email', 'password', 'thumbnail')
         .from('users')
-        .where({ email, password })
+        .where({ email, password: hashPassword })
         .first();
       if (!user_id) {
         return response

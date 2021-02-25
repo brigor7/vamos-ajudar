@@ -1,14 +1,14 @@
 const crypto = require('crypto');
 const dotenv = require('dotenv').config();
 
-const { SECRET } = dotenv;
+const { SECRET } = dotenv.parsed;
 
 module.exports = {
   async hash(password) {
     return new Promise((resolve, reject) => {
       crypto.scrypt(password, SECRET, 64, (err, derivedKey) => {
         if (err) reject(err);
-        resolve(SECRET + ':' + derivedKey.toString('hex'));
+        resolve(derivedKey.toString('hex'));
       });
     });
   },
