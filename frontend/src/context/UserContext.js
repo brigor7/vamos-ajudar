@@ -10,24 +10,23 @@ export const UserProvider = ({ children }) => {
   const navigate = useHistory();
 
   async function userLogin(email, password) {
-    try {
-      setError(null);
-      setLoading(true);
-      const token = await api.post('/session', {
+    setError(null);
+    setLoading(true);
+    api
+      .post('/session', {
         email,
         password,
-      });
-
-      if (token) {
+      })
+      .then((token) => {
         localStorage.setItem('token', JSON.stringify(token.data));
         navigate.push('/main');
-      }
-    } catch (err) {
-      setError('Ocorreu um erro. ' + err);
-    } finally {
-      setLoading(false);
-      setError(null);
-    }
+      })
+      .catch((err) => {
+        setError('Usuario ou senha inválidos');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   return (
