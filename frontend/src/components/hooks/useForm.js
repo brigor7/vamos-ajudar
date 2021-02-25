@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 
-const useForm = ({ type }) => {
+const useForm = (type) => {
   const [value, setValue] = useState('');
-  const [erro, setErro] = useState('');
+  const [error, setError] = useState('');
   const inputRef = useRef();
 
   const types = {
@@ -11,9 +11,9 @@ const useForm = ({ type }) => {
       message: 'Preencha um e-mail válido!',
     },
     password: {
-      regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+      regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/,
       message:
-        'A senha precisa ter: Mínimo de 8 caracteres e composta por letras minuscula/maiscula e número.',
+        'A senha precisa ter: Mínimo de 6 caracteres e composta por letras minuscula/maiscula e número.',
     },
   };
 
@@ -21,19 +21,19 @@ const useForm = ({ type }) => {
     if (type === false) return true;
 
     if (value.length === 0) {
-      setErro('Campo não foi preenchido!');
+      setError('Preencha um valor.');
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
-      setErro(types[type].message);
+      setError(types[type].message);
       return false;
     } else {
-      setErro(null);
+      setError(null);
       return true;
     }
   };
 
   const onChange = ({ target }) => {
-    if (erro) validate(target.value);
+    if (error) validate(target.value);
     setValue(target.value);
   };
 
@@ -41,7 +41,7 @@ const useForm = ({ type }) => {
     value,
     setValue,
     onChange,
-    erro,
+    error,
     validate: () => validate(value),
     onBlur: () => validate(value),
     inputRef,
