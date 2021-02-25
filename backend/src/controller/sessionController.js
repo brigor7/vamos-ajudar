@@ -1,4 +1,5 @@
 const api = require('../database/connection');
+const authToken = require('../helper/authenticateToken');
 
 module.exports = {
   async session(request, response) {
@@ -14,7 +15,9 @@ module.exports = {
           .status(400)
           .json({ error: 'Usuário ou senha incorreto.' });
       }
-      response.send(user_id);
+      const token = authToken.generateToken(user_id);
+
+      response.send({ token });
     } catch (error) {
       console.info('#Erro listar user' + error);
     }

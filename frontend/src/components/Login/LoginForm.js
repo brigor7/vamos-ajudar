@@ -16,10 +16,10 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const user_id = await api.post('/session', { email, password });
-      console.log(user_id.data);
-      if (user_id) {
-        localStorage.setItem('user_id', JSON.stringify(user_id.data));
+      const token = await api.post('/session', { email, password });
+      console.log(token.data);
+      if (token) {
+        localStorage.setItem('token', JSON.stringify(token.data));
         navigate.push('/main');
       }
     } catch (error) {
