@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    ".vscode": true,
+    "package.json": true,
+    "yarn.lock": true,
+    "public": true,
+    ".gitignore": true,
+    ".eslintcache": true,
+    "README.md": true
+  }
+}
