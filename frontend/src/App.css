@@ -91,9 +91,9 @@ img {
 }
 
 .error {
-  border-color: #e8273b;
-  color: #fff;
-  background-color: #ed5565;
+  color: #f31;
+  font-size: 0.875rem;
+  margin-top: 0;
 }
 .sucesso {
   border-color: #87c940;
