@@ -10,4 +10,12 @@ module.exports = {
     });
     return token;
   },
+  verifyToken(token) {
+    try {
+      var decoded = jwt.verify(token, SECRET);
+      return decoded;
+    } catch (err) {
+      console.log('### Erro na verificação do token: ' + err);
+    }
+  },
 };

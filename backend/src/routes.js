@@ -22,6 +22,7 @@ routes.delete('/user', userController.remove);
 
 /**Session */
 routes.post('/session', sessionController.session);
+routes.post('/session/jwt', sessionController.verify);
 
 /**Admin */
 routes.post('/user/add', adminController.add);
