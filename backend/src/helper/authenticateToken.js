@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
-const SECRET = 'vamosajudar';
+const { SECRET } = dotenv.parsed;
 
 module.exports = {
   generateToken(userId) {

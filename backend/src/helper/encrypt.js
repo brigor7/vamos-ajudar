@@ -1,6 +1,7 @@
 const crypto = require('crypto');
+const dotenv = require('dotenv').config();
 
-const SECRET = 'vamosajudar';
+const { SECRET } = dotenv;
 
 module.exports = {
   async hash(password) {
