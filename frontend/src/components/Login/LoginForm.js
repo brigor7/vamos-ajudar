@@ -1,41 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import './LoginForm.module.css';
-import api from '../../connection';
-import { useHistory } from 'react-router-dom';
 import useForm from '../hooks/useForm';
+import { UserContext } from '../../context/UserContext';
 
 const LoginForm = () => {
   const email = useForm('email');
   const password = useForm('password');
 
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const navigate = useHistory();
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      if (email.validate() && password.validate()) {
-        console.log('validou email e senha');
-        setLoading(true);
-        const token = await api.post('/session', {
-          email: email.value,
-          password: password.value,
-        });
-
-        if (token) {
-          localStorage.setItem('token', JSON.stringify(token.data));
-          navigate.push('/main');
-        }
-      }
-    } catch (err) {
-      setError('Ocorreu um erro. ' + err);
-    } finally {
-      setLoading(false);
-      setError(null);
-    }
+    //if (email.validate() && password.validate()) {
+    userLogin(email.value, password.value);
+    //}
   };
 
   return (
@@ -45,6 +25,7 @@ const LoginForm = () => {
         <Input label="Email" type="text" name="email" {...email} />
         <Input label="Senha" type="password" name="senha" {...password} />
         {error && <p className="error">{error}</p>}
+
         {loading ? (
           <Button disabled>Carregando...</Button>
         ) : (
