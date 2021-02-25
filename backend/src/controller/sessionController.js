@@ -6,7 +6,7 @@ module.exports = {
     const { email, password } = request.body;
     try {
       const user_id = await api
-        .select('user_id')
+        .select('user_id', 'nome', 'email', 'password', 'thumbnail')
         .from('users')
         .where({ email, password })
         .first();
