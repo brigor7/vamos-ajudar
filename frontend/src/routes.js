@@ -6,6 +6,7 @@ import Main from './pages/Main';
 import { UserProvider } from './context/UserContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
         <main className="AppBody">
           <Switch>
             <Route path="/" exact component={LoginForm} />
+            <Route path="/login" component={Login} />
             <Route path="/main" exact component={Main} />
           </Switch>
         </main>
