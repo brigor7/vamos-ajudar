@@ -6,6 +6,8 @@
 body,
 p,
 h1,
+h2,
+h3,
 img,
 a,
 ul,
@@ -13,100 +15,75 @@ li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  --type-first: 'Ubuntu', sans-serif;
+  --type-second: 'Georgia' serif;
   font-size: 16px;
+  margin-top: 3rem;
   background: #f3f0f0;
+  font-family: var(--type-first);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button {
+  display: block;
+}
+
+.container {
+  max-width: 60rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.content {
+  display: flexbox;
 }
 
 h1 {
   font-family: 'Goldman', cursive;
-  color: #07b9c3;
-  font-size: 64px;
-  margin: 0;
+  color: #f2994a;
+  line-height: 1;
+  font-size: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #120bbb;
-  text-align: center;
+  -webkit-text-stroke-color: #252525;
 }
 
-img {
-  display: flex;
+.animaLeft {
+  opacity: 1;
+  transform: translateX(-20px);
+  animation: animaLeft 0.5s forwards;
 }
 
-.container {
-  width: 100vw;
-  margin: auto;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.container .img-logo {
-  width: 220px;
-  margin-top: 30px;
-  padding: 0;
-}
-
-.container .content form {
-  display: flex;
-  flex-direction: column;
-}
-
-.container .content .form-footer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.container .content .form-footer a {
-  display: inline-flex;
-  align-items: center;
-  color: #fff;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.container .content .form-footer a svg {
-  margin-right: 2px;
-}
-
-@media (max-width: 600px) {
-  body {
-    background-image: url('./assets/backgroundMobile.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+@keyframes animaLeft {
+  to {
+    opacity: 1;
+    transform: initial;
   }
 }
 
-.alerta {
-  padding: 15px;
-  margin: 0 auto;
-  border: 1px solid gray;
-  border-radius: 3px;
-  margin: 10px;
-  font-size: 18px;
+.App {
+  display: flex;
+  flex-direction: columns;
+  min-height: calc(100vh+10rem);
+}
+
+.Appbody {
+  flex: 1;
 }
 
 .error {
   color: #f31;
   font-size: 0.875rem;
   margin-top: 0;
-}
-.sucesso {
-  border-color: #87c940;
-  color: #fff;
-  background-color: #a0d468;
-}
-.atencao {
-  border-color: #f4a911;
-  color: #fff;
-  background-color: #f6bb42;
-}
-.info {
-  border-color: #2f80e7;
-  color: #fff;
-  background-color: #5d9cec;
 }
