@@ -7,17 +7,17 @@ module.exports = {
     const { email, password } = request.body;
     const hashPassword = await encrypt.hash(password);
     try {
-      const user_id = await api
+      const user = await api
         .select('user_id', 'nome', 'email', 'password', 'thumbnail')
         .from('users')
         .where({ email, password: hashPassword })
         .first();
-      if (!user_id) {
+      if (!user) {
         return response
           .status(400)
           .json({ error: 'Usuário ou senha incorreto.' });
       }
-      const token = authToken.generateToken(user_id);
+      const token = authToken.generateToken(user);
       response.send({ token });
     } catch (error) {
       console.info('#Erro listar user' + error);
@@ -29,9 +29,10 @@ module.exports = {
     try {
       token = authorization.replace('Bearer ', '');
       const decoded = authToken.verifyToken(token);
-      response.send({ decoded });
+      response.send(decoded);
     } catch (error) {
-      console.info('#Erro listar user' + error);
+      console.info('#Erro ao verificar token' + error);
+      response.status(400).send({ message: 'Erro ao verificar token' });
     }
   },
 };
