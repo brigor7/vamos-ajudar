@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import api from '../connection';
 
 export const UserContext = createContext();
@@ -7,7 +7,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
   async function userLogin(email, password) {
     setError(null);
