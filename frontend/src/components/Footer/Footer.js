@@ -6,10 +6,13 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
+      <p>
+        Faça parte <br />
+        desse movimento!
+      </p>
       <Link className={styles.logo} to="/" aria-label="Home">
         <LogoTransparente />
       </Link>
-      <p>Alguns direitos reservados</p>
     </footer>
   );
 };
