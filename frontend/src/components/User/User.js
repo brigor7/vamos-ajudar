@@ -6,6 +6,7 @@ import Auxilio from '../Auxilio/Auxilio';
 const User = () => {
   return (
     <section className="container">
+      <UserHeader />
       <Routes>
         <Route path="/" element={<Auxilio />} />
       </Routes>
