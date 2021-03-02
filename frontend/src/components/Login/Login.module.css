@@ -1,0 +1,36 @@
+body {
+  margin-top: 3.375rem;
+}
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+
+  gap: 3rem;
+}
+
+.login::before {
+  display: block;
+  content: '';
+  background: url('../../assets/background.jpg');
+  background-size: cover;
+}
+
+.form {
+  max-width: 30rem;
+  padding: 0 2rem;
+}
+
+@media (max-width: 40rem) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+
+  .login::before {
+    display: none;
+  }
+
+  .forms {
+    max-width: 100%;
+  }
+}
