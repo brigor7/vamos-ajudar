@@ -5,6 +5,7 @@ import { UserProvider } from './context/UserContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
+import User from './components/User/User';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <main className="AppBody">
             <Routes>
               <Route path="/login/*" element={<Login />} />
+              <Route path="/conta/*" element={<User />} />
             </Routes>
           </main>
           <Footer />

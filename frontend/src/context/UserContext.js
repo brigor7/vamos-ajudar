@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState('');
   const [login, setLogin] = useState('');
-  const navigate = useNavigate(false);
+  const navigate = useNavigate();
 
   async function userLogin(email, password) {
     try {
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
       if (login) {
         console.log('entrou no token valido!');
         localStorage.setItem('token', JSON.stringify(token));
-        //navigate.push('/main');
+        navigate('/conta');
       }
     } catch (error) {
       setError('Erro ao realizar o logon' + error);
