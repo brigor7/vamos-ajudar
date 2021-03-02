@@ -78,14 +78,12 @@ button {
 }
 
 .App {
-  display: flex;
-  flex-direction: columns;
   min-height: calc(100vh+10rem);
+  margin: 0 auto;
 }
 
 .AppBody {
   flex: 1;
-  flex-wrap: wrap;
 }
 
 .error {
