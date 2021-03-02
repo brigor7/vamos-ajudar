@@ -15,7 +15,8 @@ module.exports = {
       var decoded = jwt.verify(token, SECRET);
       return decoded;
     } catch (err) {
-      console.log('### Erro na verificação do token: ' + err);
+      throw new Error({ error: 'Token com assinatura inválida' + err });
+      console.log('Token com assinatura invalida' + err);
     }
   },
 };
