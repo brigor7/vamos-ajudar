@@ -13,7 +13,7 @@ const useMedia = (media) => {
       window.removeEventListener('resize', changeMatch);
     };
   }, [media]);
-  return <div></div>;
+  return match;
 };
 
 export default useMedia;
