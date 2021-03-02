@@ -57,7 +57,6 @@ export const UserProvider = ({ children }) => {
 
       setData(JSON.stringify(json));
       setLogin(true);
-      console.log(data);
     } catch (err) {
       setError('Token inválido. Realize o login novamente.');
     }
