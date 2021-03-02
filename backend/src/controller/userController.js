@@ -48,7 +48,7 @@ module.exports = {
     } = request.body;
     try {
       const hashPassword = await encrypt.hash(password);
-      const user_id = await api('users').insert({
+      const user = await api('users').insert({
         nome,
         apelido,
         nascimento,
@@ -61,7 +61,7 @@ module.exports = {
         cidade,
         uf,
       });
-      return response.status(201).json({ user_id });
+      return response.status(201).json({ user });
     } catch (error) {
       console.info('#Erro inserir user' + error);
     }
