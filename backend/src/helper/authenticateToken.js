@@ -4,8 +4,8 @@ const dotenv = require('dotenv').config();
 const { SECRET } = dotenv.parsed;
 
 module.exports = {
-  generateToken(userId) {
-    const token = jwt.sign({ userId: userId }, SECRET, {
+  generateToken(user) {
+    const token = jwt.sign({ user: user }, SECRET, {
       expiresIn: '6h',
     });
     return token;
