@@ -4,6 +4,7 @@ import Button from '../Forms/Button';
 import styles from './LoginForm.module.css';
 import stylesBtn from '../Forms/Button.module.css';
 import useForm from '../hooks/useForm';
+import Error from '../helpers/Error';
 import { UserContext } from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 
@@ -33,6 +34,7 @@ const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
+        <Error error={error} />
       </form>
       <Link className={styles.perdeu} to="/login/perdeu">
         Esqueci a senha
