@@ -6,17 +6,16 @@ import { UserContext } from '../../context/UserContext';
 
 const Header = () => {
   const { data } = useContext(UserContext);
-  const { user } = JSON.parse(data);
 
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} container`}>
         <Link className={styles.logo} to="/" aria-label="Home">
           <Logo />
         </Link>
         {data ? (
           <Link className={styles.login} to="/login" aria-label="Home">
-            Bem vindo(a) {user.nome}
+            Ola, {data.apelido}!
           </Link>
         ) : (
           <Link className={styles.login} to="/login" aria-label="Home">
