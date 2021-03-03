@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import User from './components/User/User';
 import NotFound from './components/NotFound';
+import ProtectedRoute from './components/helpers/ProtectedRoute';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <main className="AppBody">
             <Routes>
               <Route path="/login/*" element={<Login />} />
-              <Route path="/conta/*" element={<User />} />
+              <ProtectedRoute path="/conta/*" element={<User />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
