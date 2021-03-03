@@ -13,21 +13,21 @@ const UserHeader = () => {
       case '/conta/familia':
         setTitle('Familia');
         break;
-      case '/conta/integrantes':
-        setTitle('Integrantes');
+      case '/conta/integrante':
+        setTitle('Integrante');
         break;
-      case '/conta/generos':
-        setTitle('Generos');
+      case '/conta/genero':
+        setTitle('Gênero');
         break;
       case '/conta/auxilio':
         setTitle('Auxilio');
         break;
       case '/conta/estatistica':
-        setTitle('Estatisticas');
+        setTitle('Estatística');
         break;
 
       default:
-        setTitle('Minha conta');
+        setTitle('Auxilio');
     }
   }, [location]);
 
