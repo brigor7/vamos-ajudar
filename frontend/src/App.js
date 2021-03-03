@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import User from './components/User/User';
-import NotFound from './components/NotFound';
+import NotFound from './components/helpers/NotFound';
 import ProtectedRoute from './components/helpers/ProtectedRoute';
 
 function App() {

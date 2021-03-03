@@ -6,7 +6,7 @@ import LoginCreate from './LoginCreate';
 import LoginPasswordLost from './LoginPasswordLost';
 import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../context/UserContext';
-import NotFound from '../NotFound';
+import NotFound from '../helpers/NotFound';
 
 const Login = () => {
   const { login } = useContext(UserContext);

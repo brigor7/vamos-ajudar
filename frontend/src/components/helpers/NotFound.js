@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Warning } from '../assets/lnr-warning.svg';
+import { ReactComponent as Warning } from '../../assets/lnr-warning.svg';
 
 const NotFound = () => {
   return (
