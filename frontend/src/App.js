@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import User from './components/User/User';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path="/login/*" element={<Login />} />
               <Route path="/conta/*" element={<User />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
