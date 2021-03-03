@@ -32,7 +32,7 @@ module.exports = {
       response.send(decoded);
     } catch (error) {
       console.info('#Erro ao verificar token' + error);
-      response.status(400).send({ message: 'Erro ao verificar token' });
+      response.status(400).send({ message: 'Token Inválido' });
     }
   },
 };
