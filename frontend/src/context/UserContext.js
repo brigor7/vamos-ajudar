@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback } from 'react';
+import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../connection';
 
@@ -18,9 +18,11 @@ export const UserProvider = ({ children }) => {
       const response = await api.post('/session', { email, password });
       const { token } = await response.data;
       await getUser(token);
-      if (login) {
-        console.log('entrou no token valido!');
-        localStorage.setItem('token', JSON.stringify(token));
+      console.log(token);
+      console.log(login);
+      localStorage.setItem('token', token);
+      if (login === true) {
+        console.log('entrou no userLogin');
         navigate('/conta');
       }
     } catch (error) {
@@ -42,6 +44,30 @@ export const UserProvider = ({ children }) => {
     [navigate]
   );
 
+  useEffect(() => {
+    async function autoLogin() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          setError(null);
+          setLoading(true);
+          await getUser(token);
+
+          if (login === false) throw new Error('Token Inválido');
+        } catch (err) {
+          setError(err.message);
+          userLogout();
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setLogin(false);
+      }
+    }
+
+    autoLogin();
+  }, [login, userLogout]);
+
   async function getUser(token) {
     try {
       const response = await api.post(
@@ -53,12 +79,16 @@ export const UserProvider = ({ children }) => {
           },
         }
       );
-      const json = await response.data;
+      if (response.statusText !== 'OK')
+        throw new Error('Token inválido. Realize o login novamente.');
 
-      setData(JSON.stringify(json));
+      const { user } = await response.data;
+      setData(user);
       setLogin(true);
     } catch (err) {
-      setError('Token inválido. Realize o login novamente.');
+      setData(null);
+      setLogin(false);
+      setError(err);
     }
   }
 
