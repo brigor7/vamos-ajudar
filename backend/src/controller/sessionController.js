@@ -8,7 +8,7 @@ module.exports = {
     const hashPassword = await encrypt.hash(password);
     try {
       const user = await api
-        .select('user_id', 'nome', 'email', 'password', 'thumbnail')
+        .select('user_id', 'nome', 'apelido', 'thumbnail')
         .from('users')
         .where({ email, password: hashPassword })
         .first();
