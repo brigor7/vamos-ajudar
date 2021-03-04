@@ -2,11 +2,11 @@ exports.up = function (knex) {
   return knex.schema.createTable('users', function (table) {
     table.increments('user_id').notNullable();
     table.string('nome').notNullable();
-    table.string('apelido').notNullable();
-    table.string('nascimento').notNullable();
-    table.string('sexo').notNullable();
+    table.string('apelido').nullable();
     table.string('email').notNullable();
-    table.string('whatsapp').notNullable();
+    table.string('nascimento').nullable();
+    table.string('sexo').nullable();
+    table.string('whatsapp').nullable();
     table.string('password').notNullable();
     table.string('isAdmin').nullable();
     table.string('thumbnail').nullable();

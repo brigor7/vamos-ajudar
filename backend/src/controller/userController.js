@@ -34,35 +34,19 @@ module.exports = {
 
   async create(request, response) {
     const { filename } = request.file;
-    const {
-      nome,
-      apelido,
-      nascimento,
-      sexo,
-      email,
-      whatsapp,
-      password,
-      isAdmin,
-      cidade,
-      uf,
-    } = request.body;
+    const { nome, apelido, email, password } = request.body;
     try {
       const hashPassword = await encrypt.hash(password);
       const user = await api('users').insert({
         nome,
         apelido,
-        nascimento,
-        sexo,
         email,
-        whatsapp,
         password: hashPassword,
         thumbnail: filename,
-        isAdmin,
-        cidade,
-        uf,
       });
       return response.status(201).json({ user });
     } catch (error) {
+      response.status(400).json('Erro ao inserir usuário' + error);
       console.info('#Erro inserir user' + error);
     }
   },
