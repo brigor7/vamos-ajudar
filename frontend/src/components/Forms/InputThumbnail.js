@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as Camera } from '../../assets/lnr-camera.svg';
-import './InputThumbnail.module.css';
+import styles from './InputThumbnail.module.css';
 
 const InputThumbnail = ({ thumbnail, setThumbnail }) => {
   const preview = React.useMemo(() => {
@@ -8,22 +8,22 @@ const InputThumbnail = ({ thumbnail, setThumbnail }) => {
   }, [thumbnail]);
 
   return (
-    <div className="thumb-container">
-      <label
-        id="thumbnail"
-        style={{ backgroundImage: `url(${preview})` }}
-        className={thumbnail ? 'has-thumbnail' : ''}
-      >
-        <input
-          type="file"
-          onChange={(e) => {
-            setThumbnail(e.target.files[0]);
-          }}
-        />
-        <span className="svg">
-          <Camera />
-        </span>
-      </label>
+    <div className={styles.thumbContainer}>
+      <div id={styles.thumbnail}>
+        <label>
+          <div
+            id={styles.preview}
+            style={{ backgroundImage: `url('${preview}')` }}
+          />
+          <input
+            type="file"
+            onChange={(e) => {
+              setThumbnail(e.target.files[0]);
+            }}
+          />
+          <span className={styles.svg}>{!thumbnail && <Camera />}</span>
+        </label>
+      </div>
     </div>
   );
 };

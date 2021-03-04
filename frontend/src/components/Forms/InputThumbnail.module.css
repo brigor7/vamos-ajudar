@@ -16,9 +16,16 @@
   align-items: center;
 }
 
+#preview {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
 #thumbnail:hover {
   outline: none;
-  border: 2px dashed #fb1;
+  border: 1px dashed #fb1;
   box-shadow: 0 0 0 3px #fea 0 0 0 4px #fb1;
 }
 
@@ -26,17 +33,18 @@
   display: none;
 }
 
-label#thumbnail.has-thumbnail {
+label#thumbnail.hasThumbnail {
   border: 0;
-}
-
-label#thumbnail.has-thumbnail svg {
-  display: none;
 }
 
 #thumbnail .svg {
   display: flex;
-  padding-top: 25px;
+  position: relative;
+  top: -50px;
   justify-content: center;
   align-items: center;
+}
+
+#thumbnail .svg:hover svg > * {
+  fill: #fb1;
 }
