@@ -43,7 +43,7 @@ form .formContainer .contacts-content {
 
 #thumbnail {
   margin-bottom: 20px;
-  border: 2px dashed #252525;
+  border: 2px dashed #aaa;
   background-size: cover;
   cursor: pointer;
   width: 80px;
