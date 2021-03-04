@@ -41,8 +41,7 @@ export const UserProvider = ({ children }) => {
       data.append('password', password);
       data.append('thumbnail', thumbnail);
       await api.post('user', data);
-
-      navigate('/conta');
+      await userLogin(email, password);
     } catch (error) {
       setError('Erro ao inserir usuario' + error);
     } finally {

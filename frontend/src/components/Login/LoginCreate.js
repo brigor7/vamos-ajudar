@@ -15,10 +15,10 @@ const LoginCreate = () => {
   const [thumbnail, setThumbnail] = useState('');
   const { userCreate, error, loading } = useContext(UserContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (email.validate() && password.validate())
-      userCreate(
+      await userCreate(
         nome.value,
         apelido.value,
         email.value,
