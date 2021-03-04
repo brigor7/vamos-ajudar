@@ -18,8 +18,6 @@ export const UserProvider = ({ children }) => {
       const response = await api.post('/session', { email, password });
       const { token } = await response.data;
       await getUser(token);
-      console.log(token);
-      console.log(login);
       localStorage.setItem('token', token);
       if (login === true) {
         console.log('entrou no userLogin');
@@ -27,6 +25,26 @@ export const UserProvider = ({ children }) => {
       }
     } catch (error) {
       setError('Erro ao realizar o logon' + error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function userCreate(nome, apelido, email, password, thumbnail) {
+    try {
+      setError(null);
+      setLoading(true);
+      const data = new FormData();
+      data.append('nome', nome);
+      data.append('apelido', apelido);
+      data.append('email', email);
+      data.append('password', password);
+      data.append('thumbnail', thumbnail);
+      await api.post('user', data);
+
+      navigate('/conta');
+    } catch (error) {
+      setError('Erro ao inserir usuario' + error);
     } finally {
       setLoading(false);
     }
@@ -94,7 +112,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ error, loading, userLogin, userLogout, data, login }}
+      value={{ error, loading, userLogin, userCreate, userLogout, data, login }}
     >
       {children}
     </UserContext.Provider>
