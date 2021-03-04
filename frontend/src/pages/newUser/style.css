@@ -43,7 +43,7 @@ form .formContainer .contacts-content {
 
 #thumbnail {
   margin-bottom: 20px;
-  border: 2px dashed #aaa;
+  border: 1px solid #aaa;
   background-size: cover;
   cursor: pointer;
   width: 80px;
@@ -51,6 +51,12 @@ form .formContainer .contacts-content {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+}
+
+#thumbnail:hover {
+  outline: none;
+  border: 1px solid #fb1;
+  box-shadow: 0 0 0 3px #fea 0 0 0 4px #fb1;
 }
 
 #thumbnail input {
@@ -70,6 +76,10 @@ label#thumbnail.has-thumbnail svg {
   padding-top: 25px;
   justify-content: center;
   align-items: center;
+}
+
+#thumbnail .svg > * {
+  fill: #fb1;
 }
 
 .residence-content {

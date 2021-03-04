@@ -1,49 +1,38 @@
-import React, { useState, useMemo } from 'react';
-import style from './LoginForm.module.css';
-import { ReactComponent as Camera } from '../../assets/lnr-camera.svg';
+import React, { useState, useContext } from 'react';
+import styles from './LoginForm.module.css';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
-import stylesThumb from './LoginCreate.module.css';
+import InputThumbnail from '../Forms/InputThumbnail';
+import { UserContext } from '../../context/UserContext';
+import useForm from '../hooks/useForm';
+import Error from '../helpers/Error';
 
 const LoginCreate = () => {
-  const [nome, setNome] = useState('');
-  const [apelido, setApelido] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const nome = useForm();
+  const apelido = useForm();
+  const email = useForm('email');
+  const password = useForm('password');
   const [thumbnail, setThumbnail] = useState('');
-
-  const preview = useMemo(() => {
-    return thumbnail ? URL.createObjectURL(thumbnail) : null;
-  }, [thumbnail]);
+  const { userCreate, error, loading } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (email.validate() && password.validate())
+      userCreate(
+        nome.value,
+        apelido.value,
+        email.value,
+        password.value,
+        thumbnail
+      );
   };
 
   return (
     <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
 
-      <form className={style.form} onSubmit={handleSubmit}>
-        <span className={stylesThumb.thumbContainer}>
-          <span id={stylesThumb.thumbnail}>
-            <label
-              id="thumbnail"
-              style={{ backgroundImage: `url(${preview})` }}
-              className={thumbnail ? 'has-thumbnail' : ''}
-            >
-              <input
-                type="file"
-                onChange={(e) => {
-                  setThumbnail(e.target.files[0]);
-                }}
-              />
-              <span className={stylesThumb.svg}>
-                <Camera />
-              </span>
-            </label>
-          </span>
-        </span>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <InputThumbnail setThumbnail={setThumbnail} thumbnail={thumbnail} />
         <Input label="Nome" type="text" name={'nome'} {...nome} required />
         <Input
           label="Apelido"
@@ -61,7 +50,12 @@ const LoginCreate = () => {
           required
         />
 
-        <Button>Cadastrar</Button>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button>Cadastrar</Button>
+        )}
+        {error && <Error error={error} />}
       </form>
     </section>
   );
