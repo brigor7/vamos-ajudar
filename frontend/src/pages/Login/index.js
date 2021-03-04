@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FiUserX, FiUserPlus } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../connection';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.svg';
 
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mensagemErro, setMensagemErro] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +17,7 @@ function App() {
       const user_id = await api.post('/session', { email, password });
       console.log(user_id.data);
       localStorage.setItem('user_id', JSON.stringify(user_id.data));
-      history.push('/main');
+      navigate('/main');
     } catch (error) {
       error === 'Error: Network Error'
         ? setMensagemErro('servidor não conectado: ' + error)
