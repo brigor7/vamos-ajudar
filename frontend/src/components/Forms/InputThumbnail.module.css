@@ -1,0 +1,36 @@
+.thumbContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#thumbnail {
+  margin-bottom: 20px;
+  border: 2px dashed #aaa;
+  background-size: cover;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+#thumbnail input {
+  display: none;
+}
+
+label#thumbnail.has-thumbnail {
+  border: 0;
+}
+
+label#thumbnail.has-thumbnail svg {
+  display: none;
+}
+
+#thumbnail .svg {
+  display: flex;
+  padding-top: 25px;
+  justify-content: center;
+  align-items: center;
+}
