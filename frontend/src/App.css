@@ -88,9 +88,11 @@ button {
 }
 
 .error {
+  display: block;
+  padding: 0.5rem 0;
   color: #f31;
   font-size: 0.875rem;
-  margin-top: 0;
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 40rem) {
