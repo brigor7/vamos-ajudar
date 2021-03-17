@@ -1,0 +1,21 @@
+.form {
+  margin-bottom: 2rem;
+}
+
+.form input {
+  font-size: 1.25rem;
+  max-width: 30rem;
+}
+
+.city {
+  display: flex;
+}
+
+.city input {
+  max-width: 18rem;
+  margin-right: 1rem;
+}
+
+.city .uf {
+  max-width: 3rem;
+}
