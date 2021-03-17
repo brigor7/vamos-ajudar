@@ -1,25 +1,25 @@
-import React, { useContext } from 'react';
-import Input from '../Forms/Input';
-import Button from '../Forms/Button';
-import styles from './LoginForm.module.css';
-import stylesBtn from '../Forms/Button.module.css';
-import useForm from '../hooks/useForm';
-import Error from '../helpers/Error';
-import { UserContext } from '../../context/UserContext';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import Input from '../Forms/Input'
+import Button from '../Forms/Button'
+import styles from './LoginForm.module.css'
+import stylesBtn from '../Forms/Button.module.css'
+import useForm from '../../hooks/useForm'
+import Error from '../helpers/Error'
+import { UserContext } from '../../context/UserContext'
+import { Link } from 'react-router-dom'
 
 const LoginForm = () => {
-  const email = useForm('email');
-  const password = useForm('password');
+  const email = useForm('email')
+  const password = useForm('password')
 
-  const { userLogin, error, loading } = useContext(UserContext);
+  const { userLogin, error, loading } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (email.validate()) {
-      userLogin(email.value, password.value);
+      userLogin(email.value, password.value)
     }
-  };
+  }
 
   return (
     <section className="animeLeft">
@@ -47,7 +47,7 @@ const LoginForm = () => {
         </Link>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm
