@@ -1,0 +1,27 @@
+table {
+  background: #eee;
+  border-radius: 5px;
+  border-spacing: 5px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+.button {
+  padding: 10px;
+  display: flex;
+  justify-content: right;
+  text-align: center;
+}
