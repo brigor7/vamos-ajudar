@@ -1,31 +1,31 @@
-import React, { useState, useContext } from 'react';
-import styles from './LoginForm.module.css';
-import Input from '../Forms/Input';
-import Button from '../Forms/Button';
-import InputThumbnail from '../Forms/InputThumbnail';
-import { UserContext } from '../../context/UserContext';
-import useForm from '../hooks/useForm';
-import Error from '../helpers/Error';
+import React, { useState, useContext } from 'react'
+import styles from './LoginForm.module.css'
+import Input from '../Forms/Input'
+import Button from '../Forms/Button'
+import InputThumbnail from '../Forms/InputThumbnail'
+import { UserContext } from '../../context/UserContext'
+import useForm from '../../hooks/useForm'
+import Error from '../helpers/Error'
 
 const LoginCreate = () => {
-  const nome = useForm();
-  const apelido = useForm();
-  const email = useForm('email');
-  const password = useForm('password');
-  const [thumbnail, setThumbnail] = useState('');
-  const { userCreate, error, loading } = useContext(UserContext);
+  const nome = useForm()
+  const apelido = useForm()
+  const email = useForm('email')
+  const password = useForm('password')
+  const [thumbnail, setThumbnail] = useState('')
+  const { userCreate, error, loading } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (email.validate() && password.validate())
       await userCreate(
         nome.value,
         apelido.value,
         email.value,
         password.value,
-        thumbnail
-      );
-  };
+        thumbnail,
+      )
+  }
 
   return (
     <section className="animeLeft">
@@ -58,7 +58,7 @@ const LoginCreate = () => {
         {error && <Error error={error} />}
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default LoginCreate;
+export default LoginCreate
