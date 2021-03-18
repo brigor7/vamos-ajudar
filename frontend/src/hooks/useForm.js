@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 const useForm = (type) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
-  const inputRef = useRef();
+  const inputRef = React.useRef();
 
   const types = {
     email: {
