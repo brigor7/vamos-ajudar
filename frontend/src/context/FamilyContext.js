@@ -1,14 +1,14 @@
-import React, { useState, createContext } from 'react'
-import api from '../connection'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, createContext } from "react";
+import api from "../connection";
+import { useNavigate } from "react-router-dom";
 
-const FamilyContext = createContext()
+const FamilyContext = createContext();
 
 export const FamilyProvider = ({ children }) => {
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [data, setData] = useState(false)
-  const navigate = useNavigate()
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(false);
+  const navigate = useNavigate();
 
   async function familyCreate(
     responsavel,
@@ -16,39 +16,39 @@ export const FamilyProvider = ({ children }) => {
     bairro,
     cidade,
     uf,
-    whatsapp,
+    whatsapp
   ) {
     try {
-      setError(null)
-      setLoading(true)
+      setError(null);
+      setLoading(true);
 
-      await api.post('family', {
+      await api.post("family", {
         responsavel: responsavel,
         endereco: endereco,
         bairro: bairro,
         cidade: cidade,
         uf: uf,
         whatsapp: whatsapp,
-      })
-      navigate('/conta/family')
+      });
+      navigate("/conta/family");
     } catch (error) {
-      setError('Erro ao inserir familia. ' + error)
+      setError("Erro ao inserir familia. " + error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
   async function familyList() {
     try {
-      setError(null)
-      setLoading(true)
-      const response = await api.get('family')
-      setData(response.data)
-      console.log('lista de familias 2', data)
+      setError(null);
+      setLoading(true);
+      const response = await api.get("family");
+      setData(response.data);
+      setLoading(false);
     } catch (error) {
-      setError('Erro ao listar familias. ' + error)
+      setError("Erro ao listar familias. " + error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -58,7 +58,7 @@ export const FamilyProvider = ({ children }) => {
     >
       {children}
     </FamilyContext.Provider>
-  )
-}
+  );
+};
 
-export default FamilyContext
+export default FamilyContext;

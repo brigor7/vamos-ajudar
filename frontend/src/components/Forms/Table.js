@@ -7,7 +7,7 @@ import { ReactComponent as Editar } from "../../assets/lnr-pencil.svg";
 import { ReactComponent as Excluir } from "../../assets/lnr-cross-circle.svg";
 import { ReactComponent as Novo } from "../../assets/lnr-plus-circle.svg";
 
-const Table = ({ head, data, rota, error }) => {
+const Table = ({ head, data, rota }) => {
   return (
     <div>
       <span className={styles.button}>
@@ -18,7 +18,6 @@ const Table = ({ head, data, rota, error }) => {
           </span>
         </NavLink>
       </span>
-      {error && <Error error={error} />}
       <table>
         <thead>
           <tr>
