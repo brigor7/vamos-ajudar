@@ -49,6 +49,8 @@ thead tr:hover {
 tr:hover,
 tr:hover .nav a {
   background: #fb1;
+  height: 33px;
+  width: 33px;
 }
 
 .nav a:hover,

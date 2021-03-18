@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import UserHeaderNav from './UserHeaderNav';
-import { useLocation } from 'react-router-dom';
-import styles from './UserHeader.module.css';
+import React, { useState, useEffect } from 'react'
+import UserHeaderNav from './UserHeaderNav'
+import { useLocation } from 'react-router-dom'
+import styles from './UserHeader.module.css'
 
 const UserHeader = () => {
-  const [title, setTitle] = useState('');
-  const location = useLocation();
+  const [title, setTitle] = useState('')
+  const location = useLocation()
 
   useEffect(() => {
-    const { pathname } = location;
+    const { pathname } = location
     switch (pathname) {
-      case '/conta/familia':
-        setTitle('Familia');
-        break;
+      case '/conta/family':
+        setTitle('Familia')
+        break
       case '/conta/integrante':
-        setTitle('Integrante');
-        break;
+        setTitle('Integrante')
+        break
       case '/conta/genero':
-        setTitle('Gênero');
-        break;
+        setTitle('Gênero')
+        break
       case '/conta/auxilio':
-        setTitle('Auxilio');
-        break;
+        setTitle('Auxilio')
+        break
       case '/conta/estatistica':
-        setTitle('Estatística');
-        break;
+        setTitle('Estatística')
+        break
 
       default:
-        setTitle('Auxilio');
+        setTitle('Auxilio')
     }
-  }, [location]);
+  }, [location])
 
   return (
     <header className={styles.header}>
       <h1 className="title">{title}</h1>
       <UserHeaderNav />
     </header>
-  );
-};
+  )
+}
 
-export default UserHeader;
+export default UserHeader

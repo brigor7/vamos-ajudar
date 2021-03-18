@@ -30,7 +30,7 @@ export const FamilyProvider = ({ children }) => {
         uf: uf,
         whatsapp: whatsapp,
       })
-      navigate('/conta/familia')
+      navigate('/conta/family')
     } catch (error) {
       setError('Erro ao inserir familia. ' + error)
     } finally {

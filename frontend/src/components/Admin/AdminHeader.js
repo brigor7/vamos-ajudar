@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../../assets/logo.png';
-import './style.css';
+import React from 'react'
+import logo from '../../assets/logo.png'
+import './style.css'
 
 function Menu() {
   return (
@@ -14,7 +14,7 @@ function Menu() {
             <a href="/auxilio">Auxilio</a>
           </li>
           <li>
-            <a href="/familia">Familia</a>
+            <a href="/family">Familia</a>
           </li>
           <li>
             <a href="/integrantes">Integrantes</a>
@@ -28,7 +28,7 @@ function Menu() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default Menu;
+export default Menu

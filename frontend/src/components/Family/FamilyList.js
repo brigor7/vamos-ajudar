@@ -32,7 +32,7 @@ const FamilyList = () => {
     return (
       <div>
         <span className={styles.button}>
-          <NavLink className={stylesBtn.button} to="/conta/familia/store">
+          <NavLink className={stylesBtn.button} to="/conta/family/store">
             <span className={styles.button}>
               <p>Novo</p>
               <Novo />
@@ -58,10 +58,10 @@ const FamilyList = () => {
                 <td>{uf}</td>
                 <td>
                   <nav className={styles.nav}>
-                    <NavLink to="/conta">
+                    <NavLink to="/conta/family/update">
                       <Editar />
                     </NavLink>
-                    <NavLink to="/conta">
+                    <NavLink to="/conta/family/remove">
                       <Excluir />
                     </NavLink>
                   </nav>
