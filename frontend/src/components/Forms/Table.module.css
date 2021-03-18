@@ -1,0 +1,83 @@
+table {
+  background: #eee;
+  border-radius: 5px;
+  border-spacing: 5px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav a,
+.nav button {
+  background: #eee;
+  border-radius: 0.15rem;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transform: 0.1s;
+  cursor: pointer;
+}
+
+tr:nth-child(even) .nav a {
+  background-color: #f6f6f6;
+}
+
+thead,
+thead tr:hover {
+  background-color: #ccc;
+}
+
+tr:hover,
+tr:hover .nav a {
+  background: #fb1;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav button:hover,
+.nav button:focus {
+  background: white;
+  box-shadow: 0 0 0 3x #eee;
+  border-color: #333;
+  outline: none;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+.button {
+  padding: 5px;
+  display: flex;
+  justify-content: right;
+  text-align: center;
+}
+
+.button svg > * {
+  fill: #764701;
+}
+
+.button p {
+  margin-right: 10px;
+}
