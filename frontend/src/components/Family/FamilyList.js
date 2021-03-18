@@ -1,8 +1,12 @@
 import React, { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import FamilyContext from '../../context/FamilyContext'
 import styles from './FamilyList.module.css'
 import stylesBtn from '../Forms/Button.module.css'
+import stylesBtnAction from '../User/UserHeaderNav.module.css'
+import { ReactComponent as Editar } from '../../assets/lnr-pencil.svg'
+import { ReactComponent as Excluir } from '../../assets/lnr-cross-circle.svg'
+import { ReactComponent as Novo } from '../../assets/lnr-plus-circle.svg'
 
 const FamilyList = () => {
   const { error, data, loading, familyList } = useContext(FamilyContext)
@@ -28,9 +32,12 @@ const FamilyList = () => {
     return (
       <div>
         <span className={styles.button}>
-          <Link className={stylesBtn.button} to="/conta/familia/store">
-            Novo
-          </Link>
+          <NavLink className={stylesBtn.button} to="/conta/familia/store">
+            <span className={styles.button}>
+              <p>Novo</p>
+              <Novo />
+            </span>
+          </NavLink>
         </span>
         <table>
           <thead>
@@ -39,17 +46,26 @@ const FamilyList = () => {
               <th style={{ width: '20%' }}>Contato</th>
               <th style={{ width: '20%' }}>Cidade</th>
               <th style={{ width: '10%' }}>UF</th>
-              <th style={{ width: '20%' }}>Ações</th>
+              <th style={{ width: '20%', textAlign: 'center' }}>Ações</th>
             </tr>
           </thead>
           <tbody>
             {data.map(({ id, responsavel, cidade, uf, whatsapp }) => (
               <tr key={id}>
                 <td>{responsavel}</td>
-                <td>{cidade}</td>
                 <td>{whatsapp}</td>
+                <td>{cidade}</td>
                 <td>{uf}</td>
-                <td>Editar | Excluir</td>
+                <td>
+                  <nav className={styles.nav}>
+                    <NavLink to="/conta">
+                      <Editar />
+                    </NavLink>
+                    <NavLink to="/conta">
+                      <Excluir />
+                    </NavLink>
+                  </nav>
+                </td>
               </tr>
             ))}
           </tbody>
