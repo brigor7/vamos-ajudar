@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Input.module.css';
+import React from "react";
+import styles from "./Input.module.css";
 
 const Input = ({
   label,
@@ -10,6 +10,7 @@ const Input = ({
   onBlur,
   error,
   inputRef,
+  disabled,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -24,6 +25,7 @@ const Input = ({
         type={type}
         placeholder={`Informe ${label}`}
         value={value}
+        disabled={disabled}
         onChange={onChange}
         onBlur={onBlur}
       />
