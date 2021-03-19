@@ -21,8 +21,8 @@ const User = () => {
         <Routes>
           <Route path="/family" element={<Family />} />
           <Route path="/family/store" element={<FamilyStore />} />
-          <Route path="/family/remove" element={<FamilyDelete />} />
-          <Route path="/family/update" element={<FamilyView />} />
+          <Route path="/family/remove/:id" element={<FamilyDelete />} />
+          <Route path="/family/update/:id" element={<FamilyView />} />
         </Routes>
       </FamilyProvider>
     </section>
