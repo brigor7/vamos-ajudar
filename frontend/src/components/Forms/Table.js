@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Table.module.css";
 import stylesBtn from "./Button.module.css";
-import Error from "../helpers/Error";
+
 import { ReactComponent as Editar } from "../../assets/lnr-pencil.svg";
 import { ReactComponent as Excluir } from "../../assets/lnr-cross-circle.svg";
 import { ReactComponent as Novo } from "../../assets/lnr-plus-circle.svg";
@@ -35,10 +35,10 @@ const Table = ({ head, data, rota }) => {
               <td>{col3}</td>
               <td>
                 <nav className={styles.nav}>
-                  <NavLink to={`/conta/${rota}/update`}>
+                  <NavLink to={`/conta/${rota}/update/${id}`}>
                     <Editar />
                   </NavLink>
-                  <NavLink to={`/conta/${rota}/remove`}>
+                  <NavLink to={`/conta/${rota}/remove/${id}`}>
                     <Excluir />
                   </NavLink>
                 </nav>
